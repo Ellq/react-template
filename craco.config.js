@@ -1,5 +1,6 @@
 /* eslint-disable */
 
+const path = require("path");
 const StylelintPlugin = require("stylelint-webpack-plugin");
 
 module.exports = {
@@ -15,5 +16,13 @@ module.exports = {
 
   webpack: {
     plugins: [new StylelintPlugin({ fix: true })],
+    alias: {
+      "@": path.resolve(__dirname, "src/"),
+      "@Components": path.resolve(__dirname, "src/components"),
+      "@Api": path.resolve(__dirname, "src/api"),
+      "@Img": path.resolve(__dirname, "src/assets/img"),
+      "@Models": path.resolve(__dirname, "src/models"),
+      "@Store": path.resolve(__dirname, "src/models"),
+    },
   },
 };
