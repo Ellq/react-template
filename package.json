@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "base-react-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -22,10 +22,11 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "craco start",
-    "build": "craco build",
+    "start": "fantasticon && craco start",
+    "build": "fantasticon &&craco build",
     "test": "craco test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "icons": "fantasticon"
   },
   "browserslist": {
     "production": [
@@ -48,6 +49,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.27.1",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "fantasticon": "^1.2.3",
     "prettier": "2.5.1",
     "stylelint": "^14.1.0",
     "stylelint-order": "^5.0.0",

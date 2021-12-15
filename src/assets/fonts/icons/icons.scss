@@ -1,0 +1,31 @@
+$icons-font: "icons";
+
+@font-face {
+    font-family: $icons-font;
+    src: url("./icons.ttf?cf65b054ef35a99c9f789a77aba32e79") format("truetype"),
+url("./icons.woff?cf65b054ef35a99c9f789a77aba32e79") format("woff"),
+url("./icons.woff2?cf65b054ef35a99c9f789a77aba32e79") format("woff2");
+}
+
+i[class^="icon-"]:before, i[class*=" icon-"]:before {
+    font-family: icons !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+$icons-map: (
+    "fb-icon": "\f101",
+    "plus": "\f102",
+);
+
+.icon-fb-icon:before {
+    content: map-get($icons-map, "fb-icon");
+}
+.icon-plus:before {
+    content: map-get($icons-map, "plus");
+}

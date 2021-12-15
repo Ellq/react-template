@@ -1,0 +1,3 @@
+/src/assets/fonts/**/*.scss
+/build/**/*.scss
+/build/**/*.css
