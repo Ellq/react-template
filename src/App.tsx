@@ -91,7 +91,7 @@ const App: FC = () => {
                           setEditTodo({ ...item, text: e.target.value });
                         }}
                       />
-                      <button type="button">Send</button>
+                      <button type="submit">Send</button>
                     </form>
                   </>
                 ) : (
