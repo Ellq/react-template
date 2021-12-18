@@ -1,3 +1,19 @@
 .App {
   display: block;
 }
+
+.Wrapper {
+  padding: 2rem;
+}
+
+.RemoveBtn {
+  @include reset;
+
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  i {
+    margin-left: 0.5rem;
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@app/*": ["./*"],
+      "@components/*": ["./components/*"],
+      "@api": ["./api/_Api"],
+      "@assets/*": ["./assets/*"],
+      "@img/*": ["./assets/img/*"],
+      "@models": ["./models/_Models"],
+      "@store/*": ["./store/*"],
+      "@utils/*": ["./utils/*"],
+      "@hooks/*": ["./utils/hooks/*"],
+      "@services/*": ["./services/*"],
+      "@reducers/*": ["./store/reducers/*"]
+    }
+  }
+}

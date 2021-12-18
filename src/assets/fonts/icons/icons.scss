@@ -2,9 +2,9 @@ $icons-font: "icons";
 
 @font-face {
     font-family: $icons-font;
-    src: url("./icons.ttf?cf65b054ef35a99c9f789a77aba32e79") format("truetype"),
-url("./icons.woff?cf65b054ef35a99c9f789a77aba32e79") format("woff"),
-url("./icons.woff2?cf65b054ef35a99c9f789a77aba32e79") format("woff2");
+    src: url("./icons.ttf?54bf48408c10c0f8ba3bb4f140c75dc8") format("truetype"),
+url("./icons.woff?54bf48408c10c0f8ba3bb4f140c75dc8") format("woff"),
+url("./icons.woff2?54bf48408c10c0f8ba3bb4f140c75dc8") format("woff2");
 }
 
 i[class^="icon-"]:before, i[class*=" icon-"]:before {
@@ -19,10 +19,18 @@ i[class^="icon-"]:before, i[class*=" icon-"]:before {
 }
 
 $icons-map: (
-    "fb-icon": "\f101",
-    "plus": "\f102",
+    "cancel": "\f101",
+    "edit": "\f102",
+    "fb-icon": "\f103",
+    "plus": "\f104",
 );
 
+.icon-cancel:before {
+    content: map-get($icons-map, "cancel");
+}
+.icon-edit:before {
+    content: map-get($icons-map, "edit");
+}
 .icon-fb-icon:before {
     content: map-get($icons-map, "fb-icon");
 }
