@@ -3,7 +3,7 @@
     {
       "id": 4,
       "text": "Hello World11",
-      "isCompleted": false
+      "isCompleted": true
     },
     {
       "id": 14,
@@ -13,27 +13,27 @@
     {
       "id": 16,
       "text": "Hello World 2 ?",
-      "isCompleted": true
+      "isCompleted": false
     },
     {
       "id": 17,
       "text": "cho ? 1231231",
-      "isCompleted": false
+      "isCompleted": true
     },
     {
       "id": 18,
       "text": "One More Todo",
-      "isCompleted": true
+      "isCompleted": false
     },
     {
       "id": 19,
       "text": "12311",
-      "isCompleted": true
+      "isCompleted": false
     },
     {
       "id": 20,
       "text": "123213",
-      "isCompleted": false
+      "isCompleted": true
     }
   ]
 }
