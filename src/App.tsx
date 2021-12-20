@@ -5,6 +5,19 @@ import { useAppDispatch } from "@hooks/AppDispatch";
 import { fetchTodos, addTodo, removeTodo, patchTodo } from "@reducers/TodoSlice";
 import "@assets/fonts/icons/icons.scss";
 import Models from "@models";
+import {
+  Button,
+  Checkbox,
+  IconButton,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  Stack,
+  TextField,
+} from "@mui/material";
+import { Delete as DeleteIcon, Edit as EditIcon } from "@mui/icons-material";
 
 const App: FC = () => {
   const { data: todos } = useAppSelector((state) => state.Todos);
@@ -44,85 +57,103 @@ const App: FC = () => {
 
   return (
     <>
-      <div className={Style.Wrapper}>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            onSubmitHandler();
-          }}
-        >
-          <input
-            type="text"
-            name="addTodo"
-            id=""
-            value={inputText}
-            onChange={(e) => {
-              onChangeHandler(e.target.value);
+      <div className={Style.App}>
+        <div className={Style.Wrapper}>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              onSubmitHandler();
             }}
-          />
-          <button type="submit">Send</button>
-        </form>
-        <ol>
-          <div className={Style.App}>
+          >
+            <Stack direction={"row"} spacing={2}>
+              <TextField
+                label="Todo Text"
+                onChange={(e) => {
+                  onChangeHandler(e.target.value);
+                }}
+              />
+              <Button variant="contained" type="submit">
+                Add Todo
+              </Button>
+              {/* <button type="submit">Send</button> */}
+            </Stack>
+          </form>
+          <List sx={{ maxWidth: "600px" }}>
             {todos.map((item) => (
-              <li key={item.id}>
-                <input
-                  type="checkbox"
-                  name={`check`}
-                  checked={item.isCompleted}
-                  onChange={() => {
-                    onPatchHandler({ ...item, isCompleted: !item.isCompleted });
-                  }}
-                />
-                {editTodo?.id === item.id ? (
+              <ListItem
+                key={item.id}
+                secondaryAction={
                   <>
-                    <form
-                      onSubmit={(e) => {
-                        e.preventDefault();
-                        onPatchHandler(editTodo);
-                        setEditTodo(null);
-                      }}
-                    >
-                      <input
-                        type="text"
-                        value={editTodo.text}
-                        onChange={(e) => {
-                          e.preventDefault();
-                          setEditTodo({ ...item, text: e.target.value });
-                        }}
-                      />
-                      <button type="submit">Send</button>
-                    </form>
-                  </>
-                ) : (
-                  <>
-                    {item.text}
-                    <button
-                      className={Style.RemoveBtn}
+                    <IconButton
+                      edge="end"
+                      aria-label="edit"
                       onClick={(e) => {
                         e.preventDefault();
                         setEditTodo(item);
-                        // onPatchHandler(item);
                       }}
                     >
-                      <i className="icon-edit" />
-                    </button>
+                      <EditIcon />
+                    </IconButton>
+                    <IconButton
+                      edge="end"
+                      aria-label="delete"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        onRemoveHandler(item.id);
+                      }}
+                    >
+                      <DeleteIcon />
+                    </IconButton>
                   </>
-                )}
-
-                <button
-                  className={Style.RemoveBtn}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    onRemoveHandler(item.id);
+                }
+                disablePadding
+              >
+                <ListItemButton
+                  onClick={() => {
+                    onPatchHandler({ ...item, isCompleted: !item.isCompleted });
                   }}
+                  dense
                 >
-                  <i className="icon-cancel" />
-                </button>
-              </li>
+                  <ListItemIcon>
+                    <Checkbox checked={item.isCompleted} />
+                  </ListItemIcon>
+                  {editTodo?.id === item.id ? (
+                    <>
+                      <ListItemText>
+                        <form
+                          onSubmit={(e) => {
+                            e.preventDefault();
+                            onPatchHandler(editTodo);
+                            setEditTodo(null);
+                          }}
+                        >
+                          <Stack direction={"row"} spacing={2}>
+                            <TextField
+                              // label="Todo Text"
+                              value={editTodo.text}
+                              variant={"standard"}
+                              onChange={(e) => {
+                                e.preventDefault();
+                                setEditTodo({ ...item, text: e.target.value });
+                              }}
+                            />
+                            <Button variant="contained" type="submit">
+                              Submit
+                            </Button>
+                          </Stack>
+                        </form>
+                      </ListItemText>
+                    </>
+                  ) : (
+                    <>
+                      <ListItemText>{item.text}</ListItemText>
+                    </>
+                  )}
+                </ListItemButton>
+              </ListItem>
             ))}
-          </div>
-        </ol>
+          </List>
+        </div>
       </div>
     </>
   );

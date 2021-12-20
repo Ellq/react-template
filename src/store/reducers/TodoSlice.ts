@@ -1,4 +1,3 @@
-import store from "@store/index";
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import Models from "@models";
 import RequestStatus from "@utils/RequestStatus";
