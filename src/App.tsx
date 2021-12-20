@@ -35,12 +35,14 @@ const App: FC = () => {
   };
 
   const onSubmitHandler: () => void = () => {
-    dispatch(addTodo({ id: +new Date().toISOString(), text: inputText, isCompleted: false })).then(
-      () => {
+    if (inputText.length) {
+      dispatch(
+        addTodo({ id: +new Date().toISOString(), text: inputText, isCompleted: false })
+      ).then(() => {
         setInputText("");
         dispatch(fetchTodos());
-      }
-    );
+      });
+    }
   };
 
   const onRemoveHandler: (id: number) => void = (id) => {
@@ -50,9 +52,11 @@ const App: FC = () => {
   };
 
   const onPatchHandler: (todo: Models.Todo) => void = (todo) => {
-    dispatch(patchTodo({ ...todo })).then(() => {
-      dispatch(fetchTodos());
-    });
+    if (todo.text) {
+      dispatch(patchTodo({ ...todo })).then(() => {
+        dispatch(fetchTodos());
+      });
+    }
   };
 
   return (
