@@ -1,20 +1,13 @@
 import React, { FC } from "react";
-
-import Style from "./App.module.scss";
-import "@assets/fonts/icons/icons.scss";
-
-import TodoHeader from "@components/TodoHeader";
-import TodoList from "@components/TodoList";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "@pages/HomePage";
 
 const App: FC = () => (
-  <>
-    <div className={Style.App}>
-      <div className={Style.Wrapper}>
-        <TodoHeader />
-        <TodoList />
-      </div>
-    </div>
-  </>
+  <Router>
+    <Routes>
+      <Route path="/" element={<Home />} />
+    </Routes>
+  </Router>
 );
 
 export default App;

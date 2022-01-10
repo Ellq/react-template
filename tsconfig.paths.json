@@ -12,7 +12,8 @@
       "@utils/*": ["./utils/*"],
       "@hooks/*": ["./utils/hooks/*"],
       "@services/*": ["./services/*"],
-      "@reducers/*": ["./store/reducers/*"]
+      "@reducers/*": ["./store/reducers/*"],
+      "@pages/*": ["./pages/*"]
     }
   }
 }

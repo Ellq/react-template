@@ -2,8 +2,8 @@
   "todos": [
     {
       "id": 4,
-      "text": "Hello World11",
-      "isCompleted": true
+      "text": "Hello World11123123",
+      "isCompleted": false
     },
     {
       "id": 14,
@@ -11,29 +11,19 @@
       "isCompleted": true
     },
     {
-      "id": 16,
-      "text": "Hello World 2 ?",
-      "isCompleted": false
-    },
-    {
-      "id": 17,
-      "text": "cho ? 1231231",
-      "isCompleted": true
-    },
-    {
       "id": 18,
       "text": "One More Todo",
-      "isCompleted": false
+      "isCompleted": true
     },
     {
       "id": 19,
-      "text": "12311",
-      "isCompleted": false
+      "text": "1231231",
+      "isCompleted": true
     },
     {
       "id": 20,
-      "text": "123213",
-      "isCompleted": true
+      "text": "123123",
+      "isCompleted": false
     }
   ]
 }

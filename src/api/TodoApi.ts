@@ -1,9 +1,18 @@
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 import Models from "@models";
 
-const instance = axios.create({ baseURL: process.env.REACT_APP_API_URL });
+const controller = new AbortController();
 
-export const fetchAll: () => Promise<any> = async () => await instance.get<Models.Todo[]>("/todos");
+const instance = axios.create({
+  baseURL: process.env.REACT_APP_API_URL,
+  signal: controller.signal,
+});
+
+export const fetchAll: (options?: AxiosRequestConfig<any>) => Promise<any> = async (options) => {
+  const response = await instance.get<Models.Todo[]>("/todos", { ...options });
+  // controller.abort();
+  return response;
+};
 
 export const addTodo: (data: Models.Todo) => Promise<any> = async (data) =>
   await instance.post<Models.Todo>("/todos", { ...data });

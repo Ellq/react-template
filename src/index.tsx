@@ -4,6 +4,7 @@ import "./index.module.scss";
 import App from "./App";
 import { Provider } from "react-redux";
 import store from "@store/index";
+import "@assets/fonts/icons/icons.scss";
 
 ReactDOM.render(
   <React.StrictMode>
