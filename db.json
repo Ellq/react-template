@@ -23,6 +23,11 @@
     {
       "id": 20,
       "text": "123123",
+      "isCompleted": true
+    },
+    {
+      "id": 21,
+      "text": "New Todo",
       "isCompleted": false
     }
   ]
